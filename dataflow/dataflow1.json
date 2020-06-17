@@ -5,6 +5,10 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "DS_Generic_BLOB",
+						"type": "DatasetReference"
+					},
 					"name": "source1"
 				}
 			],

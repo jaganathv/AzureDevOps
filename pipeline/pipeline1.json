@@ -17,7 +17,19 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"blobContainer": {
+									"value": "@pipeline().parameters.BlobInputContainer",
+									"type": "Expression"
+								},
+								"blobFile": {
+									"value": "@pipeline().parameters.BlobFile",
+									"type": "Expression"
+								}
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
@@ -26,6 +38,24 @@
 				}
 			}
 		],
+		"parameters": {
+			"BlobInputContainer": {
+				"type": "string",
+				"defaultValue": "input"
+			},
+			"BlobFile": {
+				"type": "string",
+				"defaultValue": "xaa.csv"
+			},
+			"BlobOutputContainer1": {
+				"type": "string",
+				"defaultValue": "output"
+			},
+			"BlobOutputContainer2": {
+				"type": "string",
+				"defaultValue": "ouput1"
+			}
+		},
 		"annotations": []
 	}
 }

@@ -28,6 +28,16 @@
 									"value": "@pipeline().parameters.BlobFile",
 									"type": "Expression"
 								}
+							},
+							"sink1": {
+								"blobContainer": {
+									"value": "@pipeline().parameters.BlobInputContainer",
+									"type": "Expression"
+								},
+								"blobFile": {
+									"value": "@pipeline().parameters.BlobFile",
+									"type": "Expression"
+								}
 							}
 						}
 					},

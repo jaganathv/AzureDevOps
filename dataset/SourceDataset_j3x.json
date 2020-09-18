@@ -2,16 +2,16 @@
 	"name": "SourceDataset_j3x",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_BLOB",
+			"referenceName": "S3LinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "xaa.csv",
-				"container": "input"
+				"type": "AmazonS3Location",
+				"bucketName": "input",
+				"fileName": "xaa.csv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

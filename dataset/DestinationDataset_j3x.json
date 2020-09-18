@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "inputdatablob",
+				"folderPath": "inputdatawss3",
 				"fileSystem": "inputdata"
 			},
 			"columnDelimiter": ",",

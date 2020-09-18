@@ -1,0 +1,52 @@
+{
+	"name": "SourceDataset_j3x",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "xaa.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "lsoa_code",
+				"type": "String"
+			},
+			{
+				"name": "borough",
+				"type": "String"
+			},
+			{
+				"name": "major_category",
+				"type": "String"
+			},
+			{
+				"name": "minor_category",
+				"type": "String"
+			},
+			{
+				"name": "value",
+				"type": "String"
+			},
+			{
+				"name": "year",
+				"type": "String"
+			},
+			{
+				"name": "month",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -6,30 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-git-demo"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureDataLakeStorage1_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
-		},
-		"LS_BLOB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_BLOB'"
-		},
-		"S3LinkedService_secretAccessKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'secretAccessKey' of 'S3LinkedService'"
-		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://demostorageacct1.dfs.core.windows.net"
-		},
-		"S3LinkedService_properties_typeProperties_accessKeyId": {
-			"type": "string",
-			"defaultValue": "AKIARYNMALNEBYN5XREN"
 		}
 	},
 	"variables": {
@@ -92,15 +68,13 @@
 						"inputs": [
 							{
 								"referenceName": "S3_File",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "DestinationDataset_j3x",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -110,85 +84,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S3_File')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_j3x')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Wait1",
-						"type": "Wait",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"waitTimeInSeconds": 1
-						}
-					}
-				],
-				"parameters": {
-					"BlobInputContainer": {
-						"type": "string",
-						"defaultValue": "input"
-					},
-					"BlobFile": {
-						"type": "string",
-						"defaultValue": "xaa.csv"
-					},
-					"BlobOutputContainer1": {
-						"type": "string",
-						"defaultValue": "output"
-					},
-					"BlobOutputContainer2": {
-						"type": "string",
-						"defaultValue": "ouput1"
-					}
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_Generic_BLOB')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_BLOB",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"blobContainer": {
-						"type": "string"
-					},
-					"blobFile": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@dataset().blobFile",
-							"type": "Expression"
-						},
-						"container": {
-							"value": "@dataset().blobContainer",
-							"type": "Expression"
-						}
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_BLOB')]"
 			]
 		},
 		{
@@ -324,21 +219,6 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_BLOB')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
 			"dependsOn": []
 		},
 		{
@@ -349,24 +229,11 @@
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]",
+					"url": "https://demostorageacct1.dfs.core.windows.net",
 					"accountKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+						"value": "**********"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_BLOB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('LS_BLOB_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -380,10 +247,10 @@
 				"type": "AmazonS3",
 				"typeProperties": {
 					"serviceUrl": "",
-					"accessKeyId": "[parameters('S3LinkedService_properties_typeProperties_accessKeyId')]",
+					"accessKeyId": "AKIARYNMALNEBYN5XREN",
 					"secretAccessKey": {
 						"type": "SecureString",
-						"value": "[parameters('S3LinkedService_secretAccessKey')]"
+						"value": "**********"
 					}
 				}
 			},

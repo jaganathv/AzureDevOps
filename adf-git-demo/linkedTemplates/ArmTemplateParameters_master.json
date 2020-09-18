@@ -5,8 +5,23 @@
 		"factoryName": {
 			"value": "adf-git-demo"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"LS_BLOB_connectionString": {
 			"value": ""
+		},
+		"S3LinkedService_secretAccessKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://demostorageacct1.dfs.core.windows.net"
+		},
+		"S3LinkedService_properties_typeProperties_accessKeyId": {
+			"value": "AKIARYNMALNEBYN5XREN"
 		},
 		"containerUri": {
 			"value": ""

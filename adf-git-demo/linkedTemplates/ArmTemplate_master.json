@@ -7,9 +7,29 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-git-demo"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
 		"LS_BLOB_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_BLOB'"
+		},
+		"S3LinkedService_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'S3LinkedService'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demostorageacct1.dfs.core.windows.net"
+		},
+		"S3LinkedService_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIARYNMALNEBYN5XREN"
 		},
 		"containerUri": {
 			"type": "string",
@@ -25,7 +45,7 @@
 	},
 	"resources": [
 		{
-			"name": "ArmTemplate_0",
+			"name": "adf-git-demo_ArmTemplate_0",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -38,8 +58,23 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
 					"LS_BLOB_connectionString": {
 						"value": "[parameters('LS_BLOB_connectionString')]"
+					},
+					"S3LinkedService_secretAccessKey": {
+						"value": "[parameters('S3LinkedService_secretAccessKey')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"S3LinkedService_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('S3LinkedService_properties_typeProperties_accessKeyId')]"
 					}
 				}
 			},

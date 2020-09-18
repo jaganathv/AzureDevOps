@@ -1,0 +1,48 @@
+{
+	"name": "S3_File",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "S3LinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "orderlogs-sun-dog-edu",
+				"folderPath": "2020/09/12/00",
+				"fileName": "cadabra-2-2020-09-12-00-15-56-ce0377f0-7f53-488f-a90c-aa74a01ebc91"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}

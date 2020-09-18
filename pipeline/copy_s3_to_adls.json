@@ -1,5 +1,5 @@
 {
-	"name": "copy_blob_to_adls",
+	"name": "copy_s3_to_adls",
 	"properties": {
 		"activities": [
 			{
@@ -27,7 +27,7 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
+							"type": "AmazonS3ReadSettings",
 							"recursive": true
 						},
 						"formatSettings": {
@@ -51,7 +51,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_j3x",
+						"referenceName": "S3_File",
 						"type": "DatasetReference"
 					}
 				],
